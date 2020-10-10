@@ -144,8 +144,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK0-hS-8XW">
-                                <rect key="frame" x="40" y="145" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK0-hS-8XW">
+                                <rect key="frame" x="40" y="144" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -292,8 +292,9 @@
                         <constraints>
                             <constraint firstItem="7MU-Gk-SYX" firstAttribute="width" secondItem="P4i-eF-BiJ" secondAttribute="height" multiplier="167:448" id="59b-6o-caM"/>
                             <constraint firstItem="aK0-hS-8XW" firstAttribute="leading" secondItem="bVJ-Re-TmX" secondAttribute="leading" constant="40" id="5RD-ZE-yRS"/>
-                            <constraint firstItem="aK0-hS-8XW" firstAttribute="top" secondItem="bVJ-Re-TmX" secondAttribute="top" constant="100" id="6tu-FZ-G78"/>
+                            <constraint firstItem="aK0-hS-8XW" firstAttribute="top" secondItem="bVJ-Re-TmX" secondAttribute="top" priority="900" constant="100" id="6tu-FZ-G78"/>
                             <constraint firstItem="2xd-ht-nRk" firstAttribute="top" secondItem="aK0-hS-8XW" secondAttribute="bottom" constant="20" id="6vG-Nk-v4T"/>
+                            <constraint firstItem="1kY-wW-4F8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="G8H-A7-o5Z" secondAttribute="bottom" constant="30" id="8G0-Vs-1X0"/>
                             <constraint firstItem="1kY-wW-4F8" firstAttribute="top" secondItem="6kG-Tf-uAB" secondAttribute="bottom" constant="20" id="9Rp-yO-mVg"/>
                             <constraint firstItem="bVJ-Re-TmX" firstAttribute="bottom" secondItem="V2o-DX-SRS" secondAttribute="bottom" id="9SR-Qc-DEE"/>
                             <constraint firstItem="G8H-A7-o5Z" firstAttribute="leading" secondItem="bVJ-Re-TmX" secondAttribute="leading" constant="40" id="BAP-jz-2Ib"/>
@@ -345,6 +346,7 @@
                         <outlet property="noteLabel" destination="2xd-ht-nRk" id="dYg-X1-QIQ"/>
                         <outlet property="passwordLabel" destination="hnI-BX-aDX" id="B09-u5-Uys"/>
                         <outlet property="passwordTextField" destination="G8H-A7-o5Z" id="sdU-31-aNG"/>
+                        <outlet property="regisBottomContraint" destination="MiU-VC-sK0" id="0pV-JO-8Ev"/>
                         <outlet property="regisButton" destination="1kY-wW-4F8" id="3oH-3p-Eux"/>
                         <segue destination="Qtl-T6-hyl" kind="show" identifier="regisToMain" id="bu6-L8-xmd"/>
                     </connections>

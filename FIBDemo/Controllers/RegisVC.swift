@@ -29,6 +29,7 @@ class RegisVC: UIViewController {
     @IBOutlet weak var loginPromptButton: UIButton!
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var dobTextField: AuthItemTextField!
+    @IBOutlet weak var regisBottomContraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,10 +105,34 @@ class RegisVC: UIViewController {
         loginPromptButton.setTitle("Login Now", for: .normal)
         loginPromptButton.addTarget(self, action: #selector(didTapLogin(_:)), for: .touchUpInside)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
     }
     
     @objc func didTapLogin(_ sender: Any?) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func keyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrameY = endFrame?.origin.y ?? 0
+            
+            let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRaw = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.uintValue
+            let animationCurve = UIView.AnimationOptions(rawValue: animationCurveRaw ?? UIView.AnimationOptions.curveEaseInOut.rawValue)
+            
+            if endFrameY >= UIScreen.main.bounds.size.height {
+                regisBottomContraint.constant = 173
+            } else {
+                regisBottomContraint.constant = (endFrame?.height ?? 163) + 10
+            }
+            
+            UIView.animate(withDuration: duration, delay: TimeInterval(0), options: animationCurve, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
     }
     
     @IBAction func registerTapped(_ sender: Any) {
