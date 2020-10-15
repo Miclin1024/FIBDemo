@@ -137,7 +137,7 @@ class RegisVC: UIViewController {
     
     @IBAction func registerTapped(_ sender: Any) {
         let error = validateFields()
-        guard error == nil, let email = emailTextField.text, let password = passwordTextField.text, let dob = dobTextField.text, let mobile = mobileLabel.text, let firstname = firstNameTextField.text, let lastname = lastNameTextField.text else {
+        guard error == nil, let email = emailTextField.text, let password = passwordTextField.text, let dob = dobTextField.text, let mobile = mobileTextField.text, let firstname = firstNameTextField.text, let lastname = lastNameTextField.text else {
             self.noteLabel.text = error
             return
         }
